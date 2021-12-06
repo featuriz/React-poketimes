@@ -1,5 +1,7 @@
 # REACT ROUTING
 
+## 1. INIT
+
 npm install react-router-dom
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -11,7 +13,7 @@ Create one Navbar
 - functional
 - Import this to App
 
-## App.js
+### App.js
 
 - Add these two
   - <Routes> <Route />
@@ -27,7 +29,7 @@ Created 3 UI components files for each page
 
 Import these 3 UI components to App.js
 
-# NavLink and Link
+## 2. NavLink and Link
 
 Navbar.js
 import { Link, NavLink } from 'react-router-dom';
@@ -46,7 +48,7 @@ Creates link, same as Link. Along with that it adds class="active" aria-current=
 
 **only this two difference**
 
-## Redirect
+## 3. Redirect
 
 - Route attach extra information (props) to the file
 
@@ -71,7 +73,7 @@ useEffect(() => {
 - This worked for me.
   - If used in other files, it get looped. "you got it!".
 
-## Higher Order Component
+## 4. Higher Order Component
 
 - Adding a component above the required one.
 - Here I'm adding hoc/Rainbow.js to About.js
@@ -85,3 +87,36 @@ About.js
 - import Rainbow.js
 - export default Rainbow(About);
 - END! "got it?"
+
+## 5. using Axios
+
+[axios](https://axios-http.com/docs/intro)
+
+Only can be used in class based components
+
+Home.js
+
+- convert home to class
+
+### INFO
+
+useNavigate cannot be used in class based components.
+
+- Moving to about page.
+
+### Then
+
+[npmjs](https://www.npmjs.com/package/axios)
+[axios-http](https://axios-http.com/docs/intro)
+[jsonplaceholder](https://jsonplaceholder.typicode.com/guide/)
+
+- npm install axios
+  Home.js
+- import axios
+- convert to class
+- set state
+- componentDidMount() :: axios get rest api
+- slice and set to state
+- create 'const postList' and arrange the ui
+- pass this 'postList' to ui output
+- end!
