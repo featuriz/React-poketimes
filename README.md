@@ -32,7 +32,9 @@ Import these 3 UI components to App.js
 Navbar.js
 import { Link, NavLink } from 'react-router-dom';
 
+```
     <li><NavLink to="/about">About</NavLink></li>
+```
 
 ### Link
 
@@ -52,7 +54,8 @@ Creates link, same as Link. Along with that it adds class="active" aria-current=
   - Tutoria use v5 . So this dosen't work here. So I used v6 doc
 
 - My goal is to readire to contact from home.
-    
+
+```
     import React, { useEffect } from 'react';
     import { useNavigate } from 'react-router-dom';
     // https://reactrouter.com/docs/en/v6/getting-started/concepts#navigate-function
@@ -62,6 +65,7 @@ Creates link, same as Link. Along with that it adds class="active" aria-current=
     navigate("/contact");
     }, 2000);
     });
+```
 
 - This worked for me.
   - If used in other files, it get looped. "you got it!".
