@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# REACT ROUTING
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+npm install react-router-dom
 
-## Available Scripts
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-In the project directory, you can run:
+Route prevents page reloading!
 
-### `npm start`
+Create one Navbar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- functional
+- Import this to App
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## App.js
 
-### `npm test`
+- Add these two
+  - <Routes> <Route />
+- pass files to route as props
+- cover this jsx with <BrowserRouter>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Created 3 UI components files for each page
 
-### `npm run build`
+- Home
+- About
+- Contact
+  These pages return jsx
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Import these 3 UI components to App.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# NavLink and Link
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Navbar.js
+import { Link, NavLink } from 'react-router-dom';
 
-### `npm run eject`
+    <li><NavLink to="/about">About</NavLink></li>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Link
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Just creates a link
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### NavLink
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Creates link, same as Link. Along with that it adds class="active" aria-current="page"
 
-## Learn More
+**only this two difference**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Redirect
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Route attach extra information (props) to the file
 
-### Code Splitting
+  - Failed!
+  - Tutoria use v5 . So this dosen't work here. So I used v6 doc
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- My goal is to readire to contact from home.
+  import React, { useEffect } from 'react';
+  import { useNavigate } from 'react-router-dom';
+  // https://reactrouter.com/docs/en/v6/getting-started/concepts#navigate-function
+  let navigate = useNavigate();
+  useEffect(() => {
+  setTimeout(() => {
+  navigate("/contact");
+  }, 2000);
+  });
 
-### Analyzing the Bundle Size
+- This worked for me.
+  - If used in other files, it get looped. "you got it!".
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Higher Order Component
 
-### Making a Progressive Web App
+- Adding a component above the required one.
+- Here I'm adding hoc/Rainbow.js to About.js
+  Rainbow.js
+- Create a div with random class
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+About.js
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- import Rainbow.js
+- export default Rainbow(About);
+- END! "got it?"
