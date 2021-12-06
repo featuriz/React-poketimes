@@ -52,15 +52,16 @@ Creates link, same as Link. Along with that it adds class="active" aria-current=
   - Tutoria use v5 . So this dosen't work here. So I used v6 doc
 
 - My goal is to readire to contact from home.
-  import React, { useEffect } from 'react';
-  import { useNavigate } from 'react-router-dom';
-  // https://reactrouter.com/docs/en/v6/getting-started/concepts#navigate-function
-  let navigate = useNavigate();
-  useEffect(() => {
-  setTimeout(() => {
-  navigate("/contact");
-  }, 2000);
-  });
+
+    import React, { useEffect } from 'react';
+    import { useNavigate } from 'react-router-dom';
+    // https://reactrouter.com/docs/en/v6/getting-started/concepts#navigate-function
+    let navigate = useNavigate();
+    useEffect(() => {
+    setTimeout(() => {
+    navigate("/contact");
+    }, 2000);
+    });
 
 - This worked for me.
   - If used in other files, it get looped. "you got it!".
