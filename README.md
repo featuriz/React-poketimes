@@ -120,3 +120,58 @@ useNavigate cannot be used in class based components.
 - create 'const postList' and arrange the ui
 - pass this 'postList' to ui output
 - end!
+
+## 6. Route Parameters
+
+In tutorial it was in class component. But I'm using it in function. as per v6
+
+- Created Post.js
+  App.js
+
+```html
+<Route path="/:post_id" element="{<Post" />} />
+```
+
+Post.js
+
+```js
+let { post_id } = useParams();
+console.log(post_id);
+const [id] = useState(post_id);
+```
+
+- Passed this value to jsx
+
+#### NEXT step
+
+Display sinle post
+
+- By clicking on home page post list title -> opens post page with single post content.
+  How it's done?
+  Home.js
+- add id param to the list title, with a link to post page
+  - Its done by 'Link to='
+  - wrap the title
+
+Post.js
+
+- get the param by useParams
+- create state
+  - This has
+    - post : post data
+    - countSecrets : to avoid looping when using useEffect
+      - useEffect = is used for initilization
+    - ui : contains jsx code
+
+```js
+const [posts, setPosts] = useState({ post: null, countSecrets: 0, ui: "" });
+```
+
+- By using axios
+  - get data from api by passing id
+  - store the value to state using 'setPosts'
+  - Based on return
+    - create jsx
+    - set to state 'ui'
+- finall use the state ui in return output.
+- Got it!
