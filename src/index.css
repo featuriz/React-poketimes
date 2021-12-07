@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+nav .right li a.active {
+  border-bottom: 2px solid purple;
+}
+
 .home .post {
   overflow: hidden;
   padding-left: 80px;

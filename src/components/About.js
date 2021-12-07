@@ -1,15 +1,7 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import Rainbow from '../hoc/Rainbow';
 
 const About = () => {
-    // https://reactrouter.com/docs/en/v6/getting-started/concepts#navigate-function
-    let navigate = useNavigate();
-    useEffect(() => {
-        setTimeout(() => {
-            navigate("/contact");
-        }, 20000);
-    });
     return (
         <div className="container">
             <h4 className="center">About</h4>

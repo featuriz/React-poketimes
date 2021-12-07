@@ -11,7 +11,7 @@ const Post = () => {
             const doAxe = (a) => {
                 axios.get('https://jsonplaceholder.typicode.com/posts/' + post_id)
                     .then((res) => {
-                        setPosts(s => ({ ...s, value: res.data }));
+                        setPosts(s => ({ ...s, post: res.data }));
                         doUI(res.data)
                         // console.log(res.data)
                     });

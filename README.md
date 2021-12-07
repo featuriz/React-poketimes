@@ -203,3 +203,12 @@ import firefox from "../firefox.png";
 ```
 
 **END!**
+
+## TWEAKS
+
+- Moved redirect from About.js to Navbar.js
+  - Because even after navigation to other page, setTimeout fire.
+  - Added 'clearTimeout'
+  - to do this created state
+
+## 7. REDUX
