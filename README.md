@@ -123,10 +123,11 @@ useNavigate cannot be used in class based components.
 
 ## 6. Route Parameters
 
-In tutorial it was in class component. But I'm using it in function. as per v6
+In tutorial it was in class component. But I'm using it in function. **as per v6**
 
 - Created Post.js
-  App.js
+
+App.js
 
 ```html
 <Route path="/:post_id" element="{<Post" />} />
@@ -144,11 +145,14 @@ const [id] = useState(post_id);
 
 #### NEXT step
 
-Display sinle post
+Display single post
 
 - By clicking on home page post list title -> opens post page with single post content.
-  How it's done?
-  Home.js
+
+How it's done?
+
+Home.js
+
 - add id param to the list title, with a link to post page
   - Its done by 'Link to='
   - wrap the title
@@ -175,3 +179,27 @@ const [posts, setPosts] = useState({ post: null, countSecrets: 0, ui: "" });
     - set to state 'ui'
 - finall use the state ui in return output.
 - Got it!
+
+## 7. Add image
+
+Here adding image to list
+
+```js
+import firefox from "../firefox.png";
+<img src={firefox} alt="Firefox Logo" />;
+```
+
+```css
+.home .post {
+  overflow: hidden;
+  padding-left: 80px;
+}
+.home .post img {
+  position: absolute;
+  top: 20px;
+  left: -100px;
+  opacity: 0.6;
+}
+```
+
+**END!**
