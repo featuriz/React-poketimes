@@ -212,3 +212,12 @@ import firefox from "../firefox.png";
   - to do this created state
 
 ## 7. REDUX
+
+[codepen](https://codepen.io/featuriz/pen/yLzOxbQ)
+
+```js
+npm install redux react-redux
+npm install @reduxjs/toolkit react-redux
+```
+
+using redux as per redux doc.
