@@ -1,4 +1,4 @@
-# REACT ROUTING
+# REACT & REDUX website
 
 ## 1. INIT
 
@@ -221,3 +221,78 @@ npm install @reduxjs/toolkit react-redux
 ```
 
 using redux as per redux doc.
+
+Index.js
+
+- imported redux
+- wrapped provider
+
+Store.js
+
+- This can have many slice
+
+rootSlice.js
+
+- initilization and action
+
+Home.js
+
+```js
+import { useSelector } from "react-redux";
+const posts = useSelector((state) => state.root.posts);
+```
+
+- import useSelector
+- create list from post and return
+
+Post.js
+
+```js
+import { useSelector, useDispatch } from 'react-redux'
+import { deletePost } from '../reducers/rootSlice'
+
+const posts = useSelector((state) => state.root.posts);
+var singPost = (id) => posts.find(obj => obj.id === parseInt(id))
+const dispatch = useDispatch()
+
+const handleClick = (id) => {
+    dispatch(deletePost({ id, extra_val: 'ok-1' }));
+    navigate("/");
+}
+const post = (id) => {
+        var sp = singPost(id);
+        return sp ? () : ()
+}
+// return
+{post(post_id)}
+
+```
+
+- singPost to one post i.e find by param
+- on button click : handleClick : this trigger dispatch(deletePost)
+- we can pass args to deletePost method in slice.
+
+slice.js
+
+```js
+reducers: {
+    deletePost: (state, action) => {
+        console.log("state: " + state.posts)
+        console.log("action: " + action.payload.id)
+        console.log("action: " + action.payload.extra_val)
+        // to do
+        let newPost = state.posts.filter(post => {
+            return action.payload.id !== post.id
+        })
+        return {
+            ...state,
+            posts: newPost
+        }
+    },
+},
+```
+
+- handle state and action
+- check id from action.payload.id
+- update post
+- END!

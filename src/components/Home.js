@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 const Home = () => {
     const posts = useSelector((state) => state.root.posts);
-    console.log(posts)
+    // console.log(posts)
     const postList = posts.length ? (
         posts.map(post => {
             return (
