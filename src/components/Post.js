@@ -1,21 +1,29 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-// import axios from 'axios';
-import { useSelector } from 'react-redux'
+import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux'
+import { deletePost } from '../reducers/rootSlice'
 
 const Post = () => {
+    let navigate = useNavigate();
     let { post_id } = useParams();
     const posts = useSelector((state) => state.root.posts);
-    var singPost = (id) => posts.filter(obj => {
-        return obj.id === parseInt(id)
-    })
+    var singPost = (id) => posts.find(obj => obj.id === parseInt(id))
+    const dispatch = useDispatch()
 
-    var doUI = (id) => {
-        var x = singPost(id)[0];
-        return (x !== null) ? (
+    const handleClick = (id) => {
+        dispatch(deletePost({ id, extra_val: 'ok-1' }));
+        navigate("/");
+    }
+
+    const post = (id) => {
+        var sp = singPost(id);
+        return sp ? (
             <div className="post">
-                <h4 className="center">{x.title}</h4>
-                <p>{x.body}</p>
+                <h4 className="center">{sp.title}</h4>
+                <p>{sp.body}</p>
+                <div className="center">
+                    <button className="btn grey" onClick={() => handleClick(sp.id)}>deletePost</button>
+                </div>
             </div>
         ) : (
             <div className="center">Loading posts...</div>
@@ -23,7 +31,7 @@ const Post = () => {
     }
     return (
         <div className="container">
-            {doUI(post_id)}
+            {post(post_id)}
         </div>
     );
 }

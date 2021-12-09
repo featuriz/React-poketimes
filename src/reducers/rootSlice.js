@@ -10,18 +10,23 @@ export const rootSlice = createSlice({
         ],
     },
     reducers: {
-        // increment: (state) => {
-        //     console.log("inc")
-        //     state = state
-        // },
-        // decrement: (state) => {
-        //     console.log("dec")
-        //     state = state
-        // },
+        deletePost: (state, action) => {
+            console.log("state: " + state.posts)
+            console.log("action: " + action.payload.id)
+            console.log("action: " + action.payload.extra_val)
+            // to do
+            let newPost = state.posts.filter(post => {
+                return action.payload.id !== post.id
+            })
+            return {
+                ...state,
+                posts: newPost
+            }
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-// export const { increment, decrement } = rootSlice.actions
+export const { deletePost } = rootSlice.actions
 
 export default rootSlice.reducer
